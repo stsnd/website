@@ -136,6 +136,10 @@ body {
 
 }
 
+#scplayer {
+		margin-bottom: 2.0em;
+}
+
 .recording {
 		margin-bottom: 2.0em;
 		clear: both;
