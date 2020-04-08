@@ -1059,10 +1059,7 @@ $(document).on("uiLoaded", function(){
             console.log("Capture error: ", error.code);
           });
     } else if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-	navigator.getUserMedia = navigator.mediaDevices.getUserMedia;
-        navigator.getUserMedia( {audio:true}, gotStream,function(error) {
-            console.log("Capture error: ", error.code);
-          });
+        navigator.mediaDevices.getUserMedia( {audio:true} ).then(gotStream);
     } else {
         animate();
         $(".preamble").append("<div class='alert'>To use Live Audio Input, please download the latest version of Chrome.</div>");
