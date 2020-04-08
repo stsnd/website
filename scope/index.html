@@ -1059,7 +1059,9 @@ $(document).on("uiLoaded", function(){
             console.log("Capture error: ", error.code);
           });
     } else if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia( {audio:true} ).then(gotStream);
+        navigator.mediaDevices.getUserMedia( {audio:true} ).then(gotStream).catch(function(error) {
+            console.log("Capture error: ", error.code);
+          });
     } else {
         animate();
         $(".preamble").append("<div class='alert'>To use Live Audio Input, please download the latest version of Chrome.</div>");
@@ -1279,8 +1281,12 @@ if (AudioContext){
 
 
 function gotStream(stream) {
+    $(".preamble").append("<div class='alert'>Got stream.</div>");
+
     // Create an AudioNode from the stream.
     window.mediaStreamSource = audioContext.createMediaStreamSource( stream );
+
+    $(".preamble").append("<div class='alert'>Created media stream source.</div>");
 
     //for testing
     var osc = audioContext.createOscillator();
