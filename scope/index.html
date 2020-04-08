@@ -1187,6 +1187,7 @@ var isRunning = false;
 function update(el){
 
   if (el == 'inputType' && ui.inputType.value == 1){
+    $(".preamble").append("<div class='alert'>Setting streaming to true.</div>");
     streaming = true;
       animate();
       animateId = window.requestAnimationFrame(animate);
