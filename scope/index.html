@@ -1300,6 +1300,7 @@ function gotStream(stream) {
 
     streaming = true;
     $('#inputType-interface select').val(1).change();
+    $(".preamble").append("<div class='alert'>Animating.</div>");
     animate();
 }
 
